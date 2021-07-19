@@ -14,28 +14,16 @@ $tablet: 768px;
   }
 }
 
-a, a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: inherit;
-  
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 .nav_box {
   position: relative;
   .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto; 
     width: 80%;
     height: 50px;
     font-size: 14px;
-    // 블럭요소라서 왼쪽으로 붙음. 이럴 때 마진 auto를 주면 가운데로 온다.
-    margin: auto; 
   
     .nav_home {
       display: flex;
@@ -47,8 +35,7 @@ ul {
         font-size: 23px;
         font-weight: bold;
       }
-  
-      
+
       .home {
         @include tablet {
           display: none;
@@ -66,26 +53,23 @@ ul {
         // Sub Navigatiom ⭐️
         .search_jobs {
           .sub_nav {
-          // 아 ㅡㅡ
-          // display: none;
+          display: none;
           position: absolute;
-          width: 100%;
-          height: auto;
-          background-color: blanchedalmond;
           top: 50px;
           left: 0;
           padding-top: 30px;
+          width: 100%;
+          height: auto;
+          background-color: white;
 
           .sub_div {
-            display: flex;
+            display: flex;  
             justify-content: space-between;
             margin: auto;
             padding-bottom: 30px;
             width: 80%;
-            background-color: khaki;
 
             .position {
-              background-color: lightcoral;
               width: 150px;
               color: #999;
 
@@ -94,9 +78,8 @@ ul {
                 align-items: center;
                 justify-content: space-between;
                 font-size: 10px;
-                
                 h2 {
-                  font-size: 17px;
+                  font-size: 16px;
                   color: #333;
                 }
                 .title_box {
@@ -112,17 +95,19 @@ ul {
               }
 
               .show_more {
+                font-size: 14px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+
+                .fa-chevron-right {
+                  font-size: 9px;
+                }
               }
             }
-
-            .position_align {
-              background-color: lightcyan;
-              height: 50px;
-              flex-direction: column;
-            }
+          }
+          .sub_div_align {
+            flex-direction: column;
           }
           }
         }
@@ -132,12 +117,6 @@ ul {
             display: block;
             position: absolute;
             height: auto;
-          .article {
-            display: block;
-          }
-        }
-        .sub_nav:hover {
-          display: block;
         }
         } 
       }
@@ -154,15 +133,13 @@ ul {
         margin-right: 20px;
       }
   
-      .user_icon {
-        font-size: 12px;
+      .user_profile {
+        padding: 1px;
         width: 25px;
         height: 25px;
-        border: 1px solid rgb(116, 113, 113);
-        background-color: orange;
-        color: white;
         border-radius: 50%;
         text-align: center;
+        border: 1px solid gray;
       }
   
       .fa-bars {
@@ -178,9 +155,6 @@ ul {
         margin-right: 20px;
       }
       .service {
-        // width: 200px;
-        // height: 30px;
-        // background-color: gray;
         border: 1px solid gray;
         padding: 3px 10px 2px 10px;
         border-radius: 10px;
@@ -188,4 +162,105 @@ ul {
       }
     }
   } 
+}
+
+@include tablet {
+  .toggle_menu {
+    display: none;
+  }
+}
+@include laptop {
+  .nav_box {
+    position: relative;
+    .big_screen_only {
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
+    .home {
+      position: absolute;
+      left: 20px;
+    }
+    .nav_menu {
+      position: absolute;
+      left: 50px;
+
+      .search_jobs {
+        .sub_nav {
+          display: none;
+          .sub_div {
+            display: none;
+          }
+        }
+      }
+      .search_jobs:hover {
+        .position {
+          display: none;
+        }
+      }
+    }
+    .nav {
+      .nav_icon {
+        position: absolute;
+        right: 20px;
+        .user_profile {
+          display: none;
+        }
+        .toggle_menu_btn {
+          .fa-bars {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .toggle_menu {
+    font-size: 20px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+
+    .toggle_menu_box {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px;
+
+      .logo {
+        width: 50px;
+        height: 20px;
+      }
+
+      .fa-times {
+        color: gray;
+      }
+    }
+
+    .toggle_menu_list {
+      padding: 0 24px;
+      .simple_list {
+        padding: 13px 0;
+      }
+
+      .add_border_top {
+        border-top: 1px solid lightgray;
+        margin-top: 10px;
+        padding-top: 23px;
+      }
+      .my_info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .profile {
+          border: 1px solid white;
+          width: 38px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
 }

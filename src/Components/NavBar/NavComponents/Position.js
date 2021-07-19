@@ -1,9 +1,8 @@
 import React from "react";
 
 function Position({ jobPosition }) {
-  // console.log(jobPosition);
   const subPosition = jobPosition.list;
-  // console.log(subPosition);
+
   return (
     <div className="position">
       <a className="position_title" href="#!">
@@ -14,7 +13,7 @@ function Position({ jobPosition }) {
       </a>
       <ul className="position_list">
         {subPosition &&
-          subPosition.map((el, idx) => {
+          subPosition.map((el) => {
             return <li>{el}</li>;
           })}
       </ul>

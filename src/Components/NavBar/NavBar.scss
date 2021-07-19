@@ -1,0 +1,191 @@
+// Break Point
+$tablet: 768px;
+
+// Mixins
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+ 
+@mixin laptop {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+  
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav_box {
+  position: relative;
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    font-size: 14px;
+    // 블럭요소라서 왼쪽으로 붙음. 이럴 때 마진 auto를 주면 가운데로 온다.
+    margin: auto; 
+  
+    .nav_home {
+      display: flex;
+      align-items: center;
+      .wanted{
+        @include laptop {
+          display: none;
+        }
+        font-size: 23px;
+        font-weight: bold;
+      }
+  
+      
+      .home {
+        @include tablet {
+          display: none;
+        }
+        margin-right: 30px;
+      }
+    }
+  
+    .nav_menu {
+      .menu_list {
+        display: flex;
+        .menu_name {
+          padding: 17px 10px;
+        }
+        // Sub Navigatiom ⭐️
+        .search_jobs {
+          .sub_nav {
+          // 아 ㅡㅡ
+          // display: none;
+          position: absolute;
+          width: 100%;
+          height: auto;
+          background-color: blanchedalmond;
+          top: 50px;
+          left: 0;
+          padding-top: 30px;
+
+          .sub_div {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            padding-bottom: 30px;
+            width: 80%;
+            background-color: khaki;
+
+            .position {
+              background-color: lightcoral;
+              width: 150px;
+              color: #999;
+
+              .position_title {
+                // display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 10px;
+                
+                h2 {
+                  font-size: 17px;
+                  color: #333;
+                }
+                .title_box {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+              }
+              .position_list {
+                li {
+                  margin: 6px 0;
+                }
+              }
+
+              .show_more {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+            }
+
+            .position_align {
+              background-color: lightcyan;
+              height: 50px;
+              flex-direction: column;
+            }
+          }
+          }
+        }
+        
+        .search_jobs:hover {
+          .sub_nav {
+            display: block;
+            position: absolute;
+            height: auto;
+          .article {
+            display: block;
+          }
+        }
+        .sub_nav:hover {
+          display: block;
+        }
+        } 
+      }
+    }
+  
+    .nav_icon {
+      display: flex;
+      align-items: center;
+      i {
+        font-size: 19px;
+      }
+      
+      .fa-search, .fa-bell {
+        margin-right: 20px;
+      }
+  
+      .user_icon {
+        font-size: 12px;
+        width: 25px;
+        height: 25px;
+        border: 1px solid rgb(116, 113, 113);
+        background-color: orange;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+      }
+  
+      .fa-bars {
+        display: none;
+      }
+    }
+  
+    .nav_company {
+      display: flex;
+      align-items: center;
+      color: gray;
+      .fa-grip-lines-vertical {     
+        margin-right: 20px;
+      }
+      .service {
+        // width: 200px;
+        // height: 30px;
+        // background-color: gray;
+        border: 1px solid gray;
+        padding: 3px 10px 2px 10px;
+        border-radius: 10px;
+        text-align: center;
+      }
+    }
+  } 
+}

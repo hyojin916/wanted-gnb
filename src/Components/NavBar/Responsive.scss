@@ -1,0 +1,125 @@
+// Break Point
+$tablet: 768px;
+
+// Mixins
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+ 
+@mixin laptop {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@include tablet {
+  .home {
+    display: none;
+  }
+  .toggle_menu {
+    display: none;
+  }
+}
+
+@include laptop {
+  .nav_box {
+    position: relative;
+    .big_screen_only {
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
+    .home {
+      position: absolute;
+      left: 20px;
+    }
+    .nav_menu {
+      position: absolute;
+      left: 50px;
+      .search_jobs {
+        .sub_nav {
+          display: none;
+          .sub_div {
+            display: none;
+          }
+        }
+      }
+      
+      .search_jobs:hover {
+        .sub_nav {
+          opacity: 0;
+        }
+      }
+    }
+    .nav {
+      .nav_icon {
+        position: absolute;
+        right: 20px;
+        .user_profile {
+          display: none;
+        }
+        .toggle_menu_btn {
+          .fa-bars {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .toggle_menu {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    font-size: 20px;
+    background-color: white;
+
+    .toggle_menu_box {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px;
+
+      .logo {
+        width: 50px;
+        height: 20px;
+      }
+
+      .fa-times {
+        color: gray;
+      }
+    }
+
+    .toggle_menu_list {
+      padding: 0 24px;
+      .simple_list {
+        padding: 13px 0;
+      }
+
+      .my_info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .profile {
+          width: 38px;
+          border: 1px solid white;
+          border-radius: 50%;
+        }
+      }
+
+      .add_border_top {
+        border-top: 1px solid lightgray;
+        margin-top: 10px;
+        padding-top: 23px;
+      }
+
+      .logout {
+        color: gray;
+      }
+    }
+  }
+}

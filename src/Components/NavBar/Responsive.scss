@@ -1,7 +1,5 @@
-// Break Point
 $tablet: 768px;
 
-// Mixins
 @mixin tablet {
   @media (min-width: #{$tablet}) {
     @content;
@@ -26,40 +24,48 @@ $tablet: 768px;
 @include laptop {
   .nav_box {
     position: relative;
+
     .big_screen_only {
+      display: none;
       margin: 0;
       padding: 0;
-      display: none;
     }
+
     .home {
       position: absolute;
       left: 20px;
     }
+
     .nav_menu {
       position: absolute;
       left: 50px;
+
       .search_jobs {
         .sub_nav {
           display: none;
+          
           .sub_div {
             display: none;
           }
         }
       }
-      
+
       .search_jobs:hover {
         .sub_nav {
           opacity: 0;
         }
       }
     }
+    
     .nav {
       .nav_icon {
         position: absolute;
         right: 20px;
+        
         .user_profile {
           display: none;
         }
+
         .toggle_menu_btn {
           .fa-bars {
             display: block;
@@ -95,6 +101,7 @@ $tablet: 768px;
 
     .toggle_menu_list {
       padding: 0 24px;
+
       .simple_list {
         padding: 13px 0;
       }
